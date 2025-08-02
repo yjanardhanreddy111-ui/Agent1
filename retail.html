@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Call Retell AI Agent</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-color: #f7f9fc;
+    }
+    h1 {
+      color: #333;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 15px 30px;
+      font-size: 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    #widget-container {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📞 Retell AI Voice Call</h1>
+  <button onclick="startCall()">Call Agent</button>
+  <div id="widget-container"></div>
+
+  <!-- Retell widget loader -->
+  <script src="https://web-widget.retellai.com/bundle.js"></script>
+
+  <script>
+    function startCall() {
+      RetellAgentWebWidget.init({
+        agentId: "agent_ff2b2b1ccdaffee012d43d844e", // Your actual agent ID
+        containerId: "widget-container",
+        enableForceMicPermission: true,
+        open: true // opens when button clicked
+      });
+    }
+  </script>
+</body>
+</html>
