@@ -1,54 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Call Retell AI Agent</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Talk to Agent</title>
+  <script src="https://retellai.github.io/agent-web-widget/bundle.min.js"></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 100px;
-      background-color: #f7f9fc;
+      display: flex;
+      height: 100vh;
+      background: #f0f2f5;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
     }
-    h1 {
-      color: #333;
-    }
-    button {
+    .call-btn {
+      padding: 20px 40px;
+      font-size: 18px;
+      border-radius: 12px;
+      border: none;
       background-color: #28a745;
       color: white;
-      padding: 15px 30px;
-      font-size: 20px;
-      border: none;
-      border-radius: 8px;
       cursor: pointer;
       transition: 0.3s;
     }
-    button:hover {
+    .call-btn:hover {
       background-color: #218838;
-    }
-    #widget-container {
-      margin-top: 40px;
     }
   </style>
 </head>
 <body>
 
-  <h1>📞 Retell AI Voice Call</h1>
-  <button onclick="startCall()">Call Agent</button>
-  <div id="widget-container"></div>
-
-  <!-- Retell widget loader -->
-  <script src="https://web-widget.retellai.com/bundle.js"></script>
+  <button onclick="RetellAgentWebWidget.start()" class="call-btn">
+    🎤 Call Agent
+  </button>
 
   <script>
-    function startCall() {
-      RetellAgentWebWidget.init({
-        agentId: "agent_ff2b2b1ccdaffee012d43d844e", // Your actual agent ID
-        containerId: "widget-container",
-        enableForceMicPermission: true,
-        open: true // opens when button clicked
-      });
-    }
+    RetellAgentWebWidget.init({
+      agentId: "agent_ff2b2b1ccdaffee012d43d844e",
+      apiKey: "public_key_fdc543232696a25de792b",
+      autoStart: false,
+    });
   </script>
+
 </body>
 </html>
