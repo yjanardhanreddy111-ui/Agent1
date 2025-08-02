@@ -1,75 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Talk to Your AI Agent</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        font-family: 'Inter', sans-serif;
-      }
+<head>
+  <meta charset="UTF-8">
+  <title>Call Retell AI Agent</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-color: #f7f9fc;
+    }
+    h1 {
+      color: #333;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 15px 30px;
+      font-size: 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    #widget-container {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
 
-      body {
-        background: linear-gradient(135deg, #1e1e2f, #3a3a52);
-        color: white;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-      }
+  <h1>📞 Retell AI Voice Call</h1>
+  <button onclick="startCall()">Call Agent</button>
+  <div id="widget-container"></div>
 
-      .card {
-        background: #2a2a40;
-        border-radius: 16px;
-        padding: 40px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        width: 100%;
-        max-width: 500px;
-        text-align: center;
-      }
+  <!-- Retell widget loader -->
+  <script src="https://web-widget.retellai.com/bundle.js"></script>
 
-      h1 {
-        font-size: 1.8rem;
-        margin-bottom: 20px;
-      }
-
-      p {
-        margin-bottom: 30px;
-        color: #cfcfd9;
-      }
-
-      #retell-ai-container {
-        margin-top: 20px;
-        display: flex;
-        justify-content: center;
-      }
-
-      footer {
-        text-align: center;
-        margin-top: 40px;
-        color: #999;
-        font-size: 0.9rem;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="card">
-      <h1>Talk to Your AI Agent</h1>
-      <p>Click the mic to start talking to your AI. It’s live and connected!</p>
-      <div id="retell-ai-container"></div>
-    </div>
-
-    <script
-      src="https://retellai.com/agent/agent_ff2b2b1ccdaffee012d43d844e/embed.js"
-      data-agent-id="agent_ff2b2b1ccdaffee012d43d844e"
-    ></script>
-  </body>
+  <script>
+    function startCall() {
+      RetellAgentWebWidget.init({
+        agentId: "agent_ff2b2b1ccdaffee012d43d844e", // Your actual agent ID
+        containerId: "widget-container",
+        enableForceMicPermission: true,
+        open: true // opens when button clicked
+      });
+    }
+  </script>
+</body>
 </html>
